@@ -9,17 +9,35 @@ export const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ p: 3, backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+    <Box
+      sx={{
+        p: 2,
+        backgroundColor: '#FAFAFA', // fondo más claro y suave
+        minHeight: '100vh',
+        '@media (max-width:600px)': {
+          p: 1,
+        },
+      }}
+    >
       <header style={{ textAlign: 'center', marginBottom: '20px' }}>
         <Typography
           variant="h3"
-          sx={{ color: '#0055A4', fontWeight: 'bold', marginBottom: '10px' }}
+          sx={{
+            color: '#223A5E', // azul oscuro accesible
+            fontWeight: 'bold',
+            marginBottom: '10px',
+            fontSize: { xs: '2rem', sm: '2.5rem' },
+          }}
         >
           Francés Fácil
         </Typography>
         <Typography
           variant="subtitle1"
-          sx={{ color: '#EF4135', fontStyle: 'italic' }}
+          sx={{
+            color: '#E57373', // rojo suave
+            fontStyle: 'italic',
+            fontSize: { xs: '1rem', sm: '1.25rem' },
+          }}
         >
           Agrega hasta 20 palabras con su traducción al español
         </Typography>
@@ -31,17 +49,23 @@ export const Home = () => {
         <Box sx={{ textAlign: 'center', mt: 4 }}>
           <Typography
             variant="h5"
-            sx={{ color: '#0055A4', fontWeight: 'bold', marginBottom: '20px' }}
+            sx={{
+              color: '#4F83CC', // azul claro accesible
+              fontWeight: 'bold',
+              marginBottom: '20px',
+              fontSize: { xs: '1.2rem', sm: '1.5rem' },
+            }}
           >
             Palabras ({words.length}/20)
           </Typography>
           <Button
             variant="contained"
             sx={{
-              backgroundColor: '#EF4135',
+              backgroundColor: '#E57373', // rojo suave
               color: '#FFFFFF',
               marginRight: '10px',
-              '&:hover': { backgroundColor: '#0055A4' },
+              fontWeight: 'bold',
+              '&:hover': { backgroundColor: '#223A5E' }, // azul oscuro al pasar el mouse
             }}
             onClick={() => navigate('/practice')}
           >
@@ -50,9 +74,10 @@ export const Home = () => {
           <Button
             variant="outlined"
             sx={{
-              borderColor: '#EF4135',
-              color: '#EF4135',
-              '&:hover': { borderColor: '#0055A4', color: '#0055A4' },
+              borderColor: '#E57373',
+              color: '#E57373',
+              fontWeight: 'bold',
+              '&:hover': { borderColor: '#223A5E', color: '#223A5E' },
             }}
             onClick={() => {
               if (confirm('¿Borrar todas las palabras?')) {
@@ -69,7 +94,11 @@ export const Home = () => {
       <footer style={{ textAlign: 'center', marginTop: '40px' }}>
         <Typography
           variant="body2"
-          sx={{ color: '#0055A4', fontStyle: 'italic' }}
+          sx={{
+            color: '#4F83CC', // azul claro
+            fontStyle: 'italic',
+            fontSize: { xs: '0.9rem', sm: '1rem' },
+          }}
         >
           Consejo: Empieza con palabras básicas como "Bonjour" (Hola)
         </Typography>

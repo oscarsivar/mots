@@ -8,6 +8,13 @@
   --text-dark: #333333; /* Texto oscuro */
   --text-light: #FFFFFF; /* Texto claro */
 }
+body {
+  background: #FAFAFA;
+  color: #223A5E;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
 /* Contenedores principales */
 .word-input-container,
@@ -60,7 +67,24 @@ button:disabled {
 }
 
 .practice-button {
-  background-color: var(--success);
+  background: #E57373;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 1em;
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.2s;
+}
+
+.practice-button:hover {
+  background: #223A5E;
 }
 
 .clear-button {
@@ -98,19 +122,20 @@ button:disabled {
   color: var(--text-light);
 }
 
-/* Listas de palabras */
 .word-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .word-badge {
-  background: #f0f0f0;
-  padding: 0.3rem 0.6rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  background: #E3F2FD;
+  color: #223A5E;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  display: block;
+  font-size: 1.1em;
+  box-shadow: 0 1px 4px rgba(34, 58, 94, 0.07);
 }
 
 /* Progreso y puntuación */
@@ -141,25 +166,6 @@ button:disabled {
   text-align: center;
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-  .options-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .word-input-container,
-  .quiz-container,
-  .practice-container,
-  .no-words {
-    padding: 1rem;
-    margin: 1rem;
-  }
-}
 .practice-score {
   color: var(--primary);
   font-weight: bold;
@@ -174,4 +180,19 @@ button:disabled {
 
 .try-again-button:hover {
   background-color: var(--primary);
+}
+
+
+@media (max-width: 600px) {
+  .word-badge {
+    font-size: 1em;
+    padding: 0.5em 0.7em;
+  }
+  .practice-button {
+    font-size: 1em;
+    padding: 0.6em 1em;
+  }
+  body {
+    font-size: 1em;
+  }
 }
