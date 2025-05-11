@@ -25,9 +25,6 @@ export const WordInput = () => {
   return (
     <Box className="word-input-container">
       <Box component="header" sx={{ mb: 2 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Agregar Palabras
-        </Typography>
         <Typography variant="subtitle1" color="text.secondary">
           Agrega hasta 20 palabras con su traducción al español
         </Typography>
