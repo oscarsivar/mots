@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { LanguageContext } from '../../context/LanguageContext';
+import { Box, Typography, TextField, Button } from '@mui/material';
 
 export const WordInput = () => {
   const { words, addWord } = useContext(LanguageContext);
@@ -22,51 +23,72 @@ export const WordInput = () => {
   };
 
   return (
-    <div className="word-input-container">
-      <header>
-        <h1>Agregar Palabras</h1>
-        <p>Agrega hasta 20 palabras con su traducción al español</p>
-      </header>
+    <Box className="word-input-container">
+      <Box component="header" sx={{ mb: 2 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Agregar Palabras
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary">
+          Agrega hasta 20 palabras con su traducción al español
+        </Typography>
+      </Box>
 
-      <form onSubmit={handleSubmit}>
-        <div className="options-grid">
-          <div>
-            <input
-              type="text"
-              placeholder="Francés"
-              value={frenchWord}
-              onChange={(e) => setFrenchWord(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Español"
-              value={spanishWord}
-              onChange={(e) => setSpanishWord(e.target.value)}
-              required
-            />
-          </div>
-        </div>
-        <button type="submit" disabled={words.length >= 20}>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mb: 2 }}>
+        <Box className="options-grid" sx={{ display: 'flex', gap: 2, mb: 2 }}>
+          <TextField
+            label="Francés"
+            placeholder="Francés"
+            value={frenchWord}
+            onChange={(e) => setFrenchWord(e.target.value)}
+            required
+            fullWidth
+            size="small"
+          />
+          <TextField
+            label="Español"
+            placeholder="Español"
+            value={spanishWord}
+            onChange={(e) => setSpanishWord(e.target.value)}
+            required
+            fullWidth
+            size="small"
+          />
+        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={words.length >= 20}
+          fullWidth
+        >
           {words.length >= 20 ? 'Límite alcanzado' : 'Agregar'}
-        </button>
-      </form>
+        </Button>
+      </Box>
 
-      <div className="word-list">
+      <Box className="word-list" sx={{ mb: 2 }}>
         {words.map((word) => (
-          <span key={word.id} className="word-badge" style={{ display: 'block' }}>
+          <Typography
+            key={word.id}
+            className="word-badge"
+            sx={{ display: 'block', mb: 1, background: '#E3F2FD', borderRadius: 1, px: 2, py: 1 }}
+          >
             {word.french} → {word.spanish}
-          </span>
+          </Typography>
         ))}
-      </div>
+      </Box>
 
       {words.length > 0 && (
-        <Link to="/practice" className="practice-button">
+        <Button
+          component={Link}
+          to="/practice"
+          className="practice-button"
+          variant="contained"
+          color="secondary"
+          fullWidth
+        >
           Comenzar Práctica
-        </Link>
+        </Button>
       )}
-    </div>
+    </Box>
   );
 };
