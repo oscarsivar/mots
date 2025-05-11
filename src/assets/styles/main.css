@@ -1,0 +1,177 @@
+/* Variables de colores */
+:root {
+  --primary: #0055A4; /* Azul francés */
+  --secondary: #EF4135; /* Rojo francés */
+  --success: #4CAF50; /* Verde para correcto */
+  --error: #F44336; /* Rojo para incorrecto */
+  --background: #f5f5f5; /* Fondo claro */
+  --text-dark: #333333; /* Texto oscuro */
+  --text-light: #FFFFFF; /* Texto claro */
+}
+
+/* Contenedores principales */
+.word-input-container,
+.quiz-container,
+.practice-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--background);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Encabezados */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+/* Botones */
+button {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.practice-button {
+  background-color: var(--success);
+}
+
+.clear-button {
+  background-color: var(--error);
+}
+
+.return-button {
+  margin-top: 2rem;
+  background-color: var(--secondary);
+}
+
+/* Grillas y opciones */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.options-grid .option-btn {
+  padding: 1rem;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.options-grid .option-btn.correct {
+  background-color: var(--success);
+  color: var(--text-light);
+}
+
+.options-grid .option-btn.incorrect {
+  background-color: var(--error);
+  color: var(--text-light);
+}
+
+/* Listas de palabras */
+.word-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.word-badge {
+  background: #f0f0f0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Progreso y puntuación */
+.progress,
+.score {
+  text-align: center;
+  margin: 1rem 0;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Botón siguiente */
+.next-btn {
+  display: block;
+  margin: 1rem auto 0;
+  width: 50%;
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+/* Mensajes */
+.no-words {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fff3cd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .word-input-container,
+  .quiz-container,
+  .practice-container,
+  .no-words {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}
+.practice-score {
+  color: var(--primary);
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.try-again-button {
+  margin-right: 1rem;
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.try-again-button:hover {
+  background-color: var(--primary);
+}
